@@ -8,7 +8,7 @@ const SupermarketProblem = () => {
       <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center' }}>
         
         {/* Left Side: Image with overlaid headline */}
-        <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}>
+        <div style={{ position: 'relative', overflow: 'hidden' }}>
           <img 
             src={breakfastImg} 
             alt="Desayuno familiar con pan artesanal" 
