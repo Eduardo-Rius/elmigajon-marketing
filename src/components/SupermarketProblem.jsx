@@ -1,25 +1,42 @@
 import React from 'react';
-import sourdoughImg from '../assets/sourdough-loaf.png';
+import breakfastImg from '../assets/family-breakfast-bread.png';
 
 const SupermarketProblem = () => {
   return (
     <section className="reveal" style={{ backgroundColor: 'var(--color-primary-dark)', color: 'var(--color-text-light)' }}>
       <div className="texture-overlay"></div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'center' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center' }}>
         
-        <div style={{ order: 2 }}>
+        {/* Left Side: Image with overlaid headline */}
+        <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}>
           <img 
-            src={sourdoughImg} 
-            alt="Pan artesanal" 
+            src={breakfastImg} 
+            alt="Desayuno familiar con pan artesanal" 
             loading="lazy"
-            style={{ width: '100%', borderRadius: '12px', filter: 'brightness(0.9)' }}
+            style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover', display: 'block' }}
           />
+          <div style={{ 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            right: 0, 
+            padding: '40px 30px', 
+            background: 'linear-gradient(to bottom, rgba(59, 42, 26, 0.8) 0%, rgba(59, 42, 26, 0) 100%)',
+            zIndex: 1
+          }}>
+            <h2 style={{ 
+              fontSize: 'clamp(24px, 4vw, 36px)', 
+              lineHeight: 1.1, 
+              color: 'var(--color-text-light)',
+              maxWidth: '90%'
+            }}>
+              ¿Cansado del pan que se pone duro en dos horas?
+            </h2>
+          </div>
         </div>
 
-        <div style={{ order: 1 }}>
-          <h2 style={{ fontSize: 'clamp(28px, 5vw, 44px)', marginBottom: '20px', lineHeight: 1.1 }}>
-            ¿Cansado del pan que se pone duro en dos horas?
-          </h2>
+        {/* Right Side: Comparison and Text */}
+        <div>
           <p style={{ color: 'var(--color-subtext-light)', fontSize: '18px', marginBottom: '40px' }}>
             El pan industrial no envejece mal porque es fresco. Envejece mal porque está lleno de cosas que no deberían estar ahí.
           </p>
