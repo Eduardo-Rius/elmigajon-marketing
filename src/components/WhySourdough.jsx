@@ -66,7 +66,7 @@ const WhySourdough = () => {
             src={sourdoughImg} 
             alt="Hogaza de pan de masa madre" 
             loading="lazy"
-            style={{ width: '100%', borderRadius: '12px', boxShadow: '0 20px 40px rgba(139, 94, 43, 0.15)' }}
+            style={{ width: '100%', border: 'none', boxShadow: 'none' }}
           />
         </div>
       </div>

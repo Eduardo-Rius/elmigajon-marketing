@@ -8,12 +8,12 @@ const SupermarketProblem = () => {
       <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center' }}>
         
         {/* Left Side: Image with overlaid headline */}
-        <div style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', overflow: 'hidden', border: 'none', boxShadow: 'none', outline: 'none', background: 'transparent' }}>
           <img 
             src={breakfastImg} 
             alt="Desayuno familiar con pan artesanal" 
             loading="lazy"
-            style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover', display: 'block' }}
+            style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover', display: 'block', border: 'none', boxShadow: 'none', outline: 'none' }}
           />
           <div style={{ 
             position: 'absolute', 
@@ -42,7 +42,7 @@ const SupermarketProblem = () => {
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
-            <div style={{ backgroundColor: 'rgba(0,0,0,0.2)', padding: '25px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div style={{ backgroundColor: 'rgba(0,0,0,0.2)', padding: '25px', border: '1px solid rgba(255,255,255,0.1)' }}>
               <h3 style={{ fontSize: '18px', marginBottom: '15px' }}>Pan del súper</h3>
               <ul style={{ listStyle: 'none', fontSize: '15px', color: 'var(--color-text-light)', opacity: 0.9 }}>
                 <li style={{ marginBottom: '8px' }}>✗ Esponjantes</li>
@@ -52,7 +52,7 @@ const SupermarketProblem = () => {
               </ul>
             </div>
 
-            <div style={{ backgroundColor: 'rgba(74, 122, 46, 0.25)', padding: '25px', borderRadius: '12px', border: '1px solid var(--color-accent-green)' }}>
+            <div style={{ backgroundColor: 'rgba(74, 122, 46, 0.25)', padding: '25px', border: '1px solid var(--color-accent-green)' }}>
               <h3 style={{ fontSize: '18px', marginBottom: '15px' }}>Pan El Migajón</h3>
               <ul style={{ listStyle: 'none', fontSize: '15px', color: 'var(--color-text-light)' }}>
                 <li style={{ marginBottom: '8px' }}>✓ Harina, agua, sal, masa madre</li>
