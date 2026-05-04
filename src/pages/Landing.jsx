@@ -259,4 +259,5 @@ const Landing = () => {
   );
 };
 
+// Final structure updated for immersive experience
 export default Landing;
