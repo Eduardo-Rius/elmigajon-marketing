@@ -2,29 +2,31 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const CaptureForm = ({ layout = 'inline', buttonText = 'Pide hoy antes de las 12 →', buttonClass = 'btn-orange', showNote = true }) => {
+const CaptureForm = ({ layout = 'inline', buttonText = 'Pide hoy antes de las 12 →', buttonClass = 'btn-orange', showNote = true, variant = 'default' }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ name: '', phone: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, we would send this to a backend
     console.log('Form submitted:', formData);
     sessionStorage.setItem('migajon_form_submitted', 'true');
-    // Meta Pixel Conversion Event
     if (window.fbq) window.fbq('track', 'Lead');
     navigate('/gracias');
   };
 
+  const inputClass = variant === 'glass' 
+    ? "w-full p-4 rounded-xl border border-white/20 focus:outline-none focus:border-orange bg-white/10 backdrop-blur-md text-white placeholder:text-white/50"
+    : "w-full p-4 rounded-xl border border-sand focus:outline-none focus:border-orange bg-white text-dark";
+
   return (
-    <div className={`capture-form-container ${layout}`}>
+    <div className={`capture-form-container ${layout} ${variant}`}>
       <form onSubmit={handleSubmit} className={`flex flex-col gap-4 ${layout === 'inline' ? 'md:flex-row md:items-start' : ''}`}>
         <div className="flex-1">
           <input
             type="text"
             placeholder="Tu nombre"
             required
-            className="w-full p-4 rounded-xl border border-sand focus:outline-none focus:border-orange bg-white text-dark"
+            className={inputClass}
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             autoComplete="name"
@@ -35,7 +37,7 @@ const CaptureForm = ({ layout = 'inline', buttonText = 'Pide hoy antes de las 12
             type="tel"
             placeholder="Tu WhatsApp"
             required
-            className="w-full p-4 rounded-xl border border-sand focus:outline-none focus:border-orange bg-white text-dark"
+            className={inputClass}
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             autoComplete="tel"
@@ -48,12 +50,12 @@ const CaptureForm = ({ layout = 'inline', buttonText = 'Pide hoy antes de las 12
       </form>
       
       <div className="mt-4 flex flex-col gap-2">
-        <label className="flex items-center gap-2 cursor-pointer text-xs opacity-70">
+        <label className={`flex items-center gap-2 cursor-pointer text-xs opacity-70 ${variant === 'glass' ? 'text-white' : ''}`}>
           <input type="checkbox" required className="rounded border-sand text-orange" />
           <span>He leído y acepto la <a href="/politica-privacidad" className="underline">política de privacidad</a></span>
         </label>
         {showNote && (
-          <p className="text-xs opacity-70 italic">Sin compromiso. Te contactamos en menos de 2 horas.</p>
+          <p className={`text-xs opacity-70 italic ${variant === 'glass' ? 'text-white' : ''}`}>Sin compromiso. Te contactamos en menos de 2 horas.</p>
         )}
       </div>
 
@@ -67,6 +69,14 @@ const CaptureForm = ({ layout = 'inline', buttonText = 'Pide hoy antes de las 12
           display: flex;
           flex-direction: column;
           gap: 16px;
+        }
+        .capture-form-container.glass {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(12px);
+          padding: 32px;
+          border-radius: 24px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
         }
         input {
           min-height: 52px;

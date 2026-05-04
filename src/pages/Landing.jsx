@@ -29,28 +29,31 @@ const Landing = () => {
   return (
     <div className="landing-page">
       {/* SECTION 1 - HERO */}
-      <section className="bg-brown kraft-texture min-h-[90vh] flex items-center relative overflow-hidden py-12 md:py-20">
+      <section className="min-h-screen flex items-center relative overflow-hidden py-12 md:py-20">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="Manos amasando" className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-dark-brown/55"></div>
+          <img src={heroImg} alt="Pan artesanal" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/40 backdrop-brightness-75"></div>
         </div>
         
         <div className="container relative z-10">
-          <div className="max-w-[750px] reveal">
-            <h1 className="text-4xl md:text-7xl font-black text-cream leading-tight mb-6">
-              Pan de masa madre. Hecho esta mañana. En tu puerta mañana.
+          <div className="max-w-[850px] mx-auto text-center reveal">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white text-[10px] uppercase tracking-[0.2em] mb-12 mx-auto">
+              <span className="w-1.5 h-1.5 bg-orange rounded-full animate-pulse"></span>
+              Panadería Artesana · Polanco
+            </div>
+
+            <h1 className="text-5xl md:text-8xl font-black text-white leading-[1.1] mb-4">
+              Pan de masa madre.
             </h1>
-            <p className="text-xl md:text-2xl text-sand mb-10 max-w-[600px]">
-              72 horas de fermentación. Cero conservadores. Entrega en Polanco y Las Lomas.
+            <h2 className="text-4xl md:text-7xl font-serif italic text-orange leading-tight mb-8">
+              Hecho esta mañana.
+            </h2>
+            <p className="text-xl md:text-2xl text-cream mb-16 max-w-[650px] mx-auto opacity-90">
+              Directo a tu mesa. 72 horas de fermentación natural y cero conservadores. Entrega diaria en Polanco y Las Lomas.
             </p>
             
-            <div className="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-white/10 max-w-[650px]">
-              <CaptureForm />
-              <div className="mt-6">
-                <span className="inline-block bg-green text-white px-4 py-2 rounded-full font-bold text-sm">
-                  ✓ Tu primer pedido con garantía de devolución
-                </span>
-              </div>
+            <div className="max-w-[700px] mx-auto">
+              <CaptureForm layout="vertical" variant="glass" buttonClass="btn-orange" buttonText="Quiero mi primer pedido hoy →" />
             </div>
           </div>
         </div>
