@@ -27,18 +27,18 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className="landing-page relative min-h-screen">
+    <div className="landing-page relative min-h-screen text-white">
       {/* GLOBAL FIXED BACKGROUND */}
-      <div className="fixed inset-0 z-[-1]">
+      <div className="fixed inset-0 z-[-1] pointer-events-none">
         <img src={heroImg} alt="Pan artesanal" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/60 backdrop-brightness-50"></div>
+        <div className="absolute inset-0 bg-black/65 backdrop-brightness-50"></div>
       </div>
 
       {/* SECTION 1 - HERO */}
       <section className="min-h-screen flex items-center relative py-12 md:py-20">
         <div className="container relative z-10">
           <div className="max-w-[850px] mx-auto text-center reveal">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white text-[10px] uppercase tracking-[0.2em] mb-12 mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white text-[10px] uppercase tracking-[0.2em] mb-12 mx-auto">
               <span className="w-1.5 h-1.5 bg-orange rounded-full animate-pulse"></span>
               Panadería Artesana · Polanco
             </div>
@@ -61,115 +61,105 @@ const Landing = () => {
       </section>
 
       {/* SECTION 2 - WHY SOURDOUGH */}
-      <section className="bg-white/5 backdrop-blur-sm border-y border-white/10 py-24">
+      <section className="bg-white/5 backdrop-blur-xl border-y border-white/10 py-24">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="reveal">
-              <h2 className="text-3xl md:text-4xl font-bold text-dark mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
                 ¿Por qué es diferente el pan de masa madre?
               </h2>
               <div className="space-y-8">
-                <div className="flex gap-4 reveal stagger-1">
-                  <div className="shrink-0 w-12 h-12 bg-brown/10 rounded-full flex items-center justify-center text-brown">
-                    <Wheat size={24} />
+                {[
+                  { icon: <Wheat size={24} />, title: "72 horas de fermentación natural", desc: "El tiempo hace lo que ningún aditivo puede. Sabor profundo y mejor digestión." },
+                  { icon: <Hand size={24} />, title: "Amasado a mano, cada pieza", desc: "No hay dos iguales, y así se nota. Cuidado artesanal en cada hogaza." },
+                  { icon: <Heart size={24} />, title: "Ingredientes locales, sin conservadores", desc: "Lo que comes sí importa. Harina, agua, sal y nada más." }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4 reveal" style={{ transitionDelay: `${idx * 0.1}s` }}>
+                    <div className="shrink-0 w-12 h-12 bg-orange/20 rounded-full flex items-center justify-center text-orange border border-orange/30">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2 text-sand">{item.title}</h3>
+                      <p className="opacity-70 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">72 horas de fermentación natural</h3>
-                    <p className="opacity-80">El tiempo hace lo que ningún aditivo puede. Sabor profundo y mejor digestión.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4 reveal stagger-2">
-                  <div className="shrink-0 w-12 h-12 bg-brown/10 rounded-full flex items-center justify-center text-brown">
-                    <Hand size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Amasado a mano, cada pieza</h3>
-                    <p className="opacity-80">No hay dos iguales, y así se nota. Cuidado artesanal en cada hogaza.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4 reveal stagger-3">
-                  <div className="shrink-0 w-12 h-12 bg-brown/10 rounded-full flex items-center justify-center text-brown">
-                    <Heart size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Ingredientes locales, sin conservadores</h3>
-                    <p className="opacity-80">Lo que comes sí importa. Harina, agua, sal y nada más.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             <div className="reveal order-first md:order-last">
-              <img src={loafImg} alt="Hogaza de pan" className="w-full rounded-2xl shadow-xl aspect-square object-cover" />
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-orange/20 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                <img src={loafImg} alt="Hogaza de pan" className="relative w-full rounded-2xl shadow-2xl aspect-square object-cover border border-white/10" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 3 - PROBLEM VS SOLUTION */}
-      <section className="bg-brown/80 backdrop-blur-md text-cream py-24">
+      <section className="bg-black/40 backdrop-blur-lg py-24">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="reveal">
-              <img src={crumbImg} alt="Miga artesanal" className="w-full rounded-2xl shadow-2xl" />
+              <img src={crumbImg} alt="Miga artesanal" className="w-full rounded-2xl shadow-2xl border border-white/10" />
             </div>
             <div className="reveal">
-              <h2 className="text-3xl md:text-4xl font-black mb-6">
+              <h2 className="text-3xl md:text-4xl font-black mb-6 text-white">
                 ¿Cansado del pan que se pone duro en dos horas?
               </h2>
-              <p className="text-lg text-sand mb-10 italic">
+              <p className="text-lg text-sand mb-10 italic opacity-80">
                 "El pan industrial no envejece mal porque es fresco. Envejece mal porque está lleno de cosas que no deberían estar ahí."
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-black/20 border border-white/10 p-6 rounded-2xl">
-                  <h4 className="font-bold mb-4 text-red-400">Pan del súper</h4>
-                  <ul className="space-y-3 text-sm opacity-80">
+                <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                  <h4 className="font-bold mb-4 text-red-400 uppercase tracking-widest text-xs">Pan del súper</h4>
+                  <ul className="space-y-3 text-sm opacity-70">
                     <li className="flex items-center gap-2"><X size={14} className="text-red-400" /> Esponjosantes</li>
                     <li className="flex items-center gap-2"><X size={14} className="text-red-400" /> Conservadores E-200</li>
                     <li className="flex items-center gap-2"><X size={14} className="text-red-400" /> Fermentación en 2 horas</li>
                     <li className="flex items-center gap-2"><X size={14} className="text-red-400" /> Duro al día siguiente</li>
                   </ul>
                 </div>
-                <div className="bg-green/20 border border-green/30 p-6 rounded-2xl">
-                  <h4 className="font-bold mb-4 text-green">Pan El Migajón</h4>
+                <div className="bg-orange/10 border border-orange/30 p-6 rounded-2xl backdrop-blur-sm">
+                  <h4 className="font-bold mb-4 text-orange uppercase tracking-widest text-xs">Pan El Migajón</h4>
                   <ul className="space-y-3 text-sm">
-                    <li className="flex items-center gap-2"><Check size={14} /> Harina, agua, sal, masa madre</li>
-                    <li className="flex items-center gap-2"><Check size={14} /> 72h fermentación real</li>
-                    <li className="flex items-center gap-2"><Check size={14} /> Sin aditivos ni conservadores</li>
-                    <li className="flex items-center gap-2"><Check size={14} /> Mejor al 2º y 3º día</li>
+                    <li className="flex items-center gap-2"><Check size={14} className="text-orange" /> Harina, agua, sal, masa madre</li>
+                    <li className="flex items-center gap-2"><Check size={14} className="text-orange" /> 72h fermentación real</li>
+                    <li className="flex items-center gap-2"><Check size={14} className="text-orange" /> Sin aditivos ni conservadores</li>
+                    <li className="flex items-center gap-2"><Check size={14} className="text-orange" /> Mejor al 2º y 3º día</li>
                   </ul>
                 </div>
               </div>
-              <button className="btn btn-orange mt-10" onClick={() => window.scrollTo(0, 0)}>Pruébalo esta semana →</button>
+              <button className="btn btn-orange mt-10 w-full md:w-auto" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>Pruébalo esta semana →</button>
             </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 4 - DELIVERY */}
-      <section className="bg-white/5 backdrop-blur-sm border-y border-white/10 py-24">
+      <section className="bg-white/5 backdrop-blur-xl border-y border-white/10 py-24">
         <div className="container">
           <div className="text-center mb-16 reveal">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">En tu puerta. Sin que tengas que moverte.</h2>
-            <img src={deliveryImg} alt="Entrega en Polanco" className="max-w-4xl w-full mx-auto rounded-3xl shadow-lg my-12" />
+            <div className="relative inline-block my-12">
+              <div className="absolute -inset-4 bg-orange/20 blur-2xl rounded-full opacity-20"></div>
+              <img src={deliveryImg} alt="Entrega en Polanco" className="relative max-w-4xl w-full mx-auto rounded-3xl shadow-2xl border border-white/10" />
+            </div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white border border-orange/20 p-8 rounded-2xl shadow-sm hover:-translate-y-2 transition-all reveal stagger-1">
-              <Clock className="text-orange mb-4" size={32} />
-              <h3 className="text-xl font-bold mb-3">Pide antes de las 12</h3>
-              <p className="opacity-70 text-sm">Recibe al día siguiente por la mañana, mientras el pan aún huele a horno.</p>
-            </div>
-            <div className="bg-white border border-orange/20 p-8 rounded-2xl shadow-sm hover:-translate-y-2 transition-all reveal stagger-2">
-              <MapPin className="text-orange mb-4" size={32} />
-              <h3 className="text-xl font-bold mb-3">Polanco y Las Lomas</h3>
-              <p className="opacity-70 text-sm">Repartimos en toda la zona. Consulta si llegamos a tu calle.</p>
-            </div>
-            <div className="bg-white border border-orange/20 p-8 rounded-2xl shadow-sm hover:-translate-y-2 transition-all reveal stagger-3">
-              <ShoppingBag className="text-orange mb-4" size={32} />
-              <h3 className="text-xl font-bold mb-3">Pedido mínimo: 300 pesos</h3>
-              <p className="opacity-70 text-sm">Pan desde 100 pesos. Bollería desde 30. Combina como quieras.</p>
-            </div>
+            {[
+              { icon: <Clock size={32} />, title: "Pide antes de las 12", desc: "Recibe al día siguiente por la mañana, mientras el pan aún huele a horno." },
+              { icon: <MapPin size={32} />, title: "Polanco y Las Lomas", desc: "Repartimos en toda la zona. Consulta si llegamos a tu calle." },
+              { icon: <ShoppingBag size={32} />, title: "Pedido mínimo: $300", desc: "Pan desde $100. Bollería desde $30. Combina como quieras." }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition-all duration-300 reveal">
+                <div className="text-orange mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="opacity-70 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -188,8 +178,8 @@ const Landing = () => {
               { text: "Mis hijos ahora saben lo que es el pan de verdad. Y ya no quieren otro.", author: "Carlos M.", loc: "Las Lomas de Chapultepec" },
               { text: "Lo pedí por curiosidad. La segunda semana ya lo tenía en el calendario.", author: "Sofía G.", loc: "colonia Polanco" }
             ].map((t, i) => (
-              <div key={i} className="min-w-[85vw] md:min-w-0 bg-white/10 border border-white/20 p-8 rounded-3xl reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                <p className="text-xl italic mb-6">"{t.text}"</p>
+              <div key={i} className="min-w-[85vw] md:min-w-0 bg-white/10 backdrop-blur-sm border border-white/10 p-8 rounded-3xl reveal">
+                <p className="text-xl italic mb-6 leading-relaxed">"{t.text}"</p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-orange rounded-full flex items-center justify-center font-bold text-dark">{t.author[0]}</div>
                   <div>
@@ -204,38 +194,43 @@ const Landing = () => {
       </section>
 
       {/* SECTION 6 - GUARANTEE & FINAL CTA */}
-      <section id="final-cta" className="bg-orange/90 backdrop-blur-sm relative overflow-hidden py-24 text-center">
+      <section id="final-cta" className="bg-orange/80 backdrop-blur-md relative overflow-hidden py-32 text-center">
         <div className="container relative z-10 reveal">
-          <Check className="w-20 h-20 mx-auto text-dark mb-8" strokeWidth={3} />
+          <div className="w-20 h-20 mx-auto bg-dark/20 rounded-full flex items-center justify-center mb-8 border border-dark/10">
+            <Check className="w-10 h-10 text-dark" strokeWidth={3} />
+          </div>
           <h2 className="text-4xl md:text-6xl font-black text-dark mb-6">Tu primer pedido tiene garantía de devolución.</h2>
-          <p className="text-xl md:text-2xl text-dark/80 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-dark/70 mb-12 max-w-2xl mx-auto">
             Si no es el mejor pan que has probado en Polanco, te regresamos tu dinero. Sin preguntas.
           </p>
           
-          <div className="bg-dark p-8 md:p-12 rounded-[40px] max-w-3xl mx-auto shadow-2xl">
-            <CaptureForm layout="vertical" buttonClass="btn-orange" buttonText="Quiero mi primer pedido →" />
-            <p className="text-cream/60 text-sm mt-6">Pedido mínimo 300 pesos. Entrega en Polanco y Las Lomas.</p>
+          <div className="bg-white/10 backdrop-blur-xl p-8 md:p-12 rounded-[40px] max-w-3xl mx-auto border border-white/20 shadow-2xl">
+            <CaptureForm layout="vertical" variant="glass" buttonClass="btn-dark" buttonText="Quiero mi primer pedido →" />
+            <p className="text-dark/40 text-xs mt-6">Pedido mínimo $300 pesos. Entrega en Polanco y Las Lomas.</p>
           </div>
         </div>
-        
-        {/* Animated Background */}
-        <div className="absolute inset-0 z-0 bg-gradient-animate"></div>
       </section>
 
       {/* SECTION 7 - FOOTER */}
-      <footer className="bg-dark py-12 text-center text-sand">
+      <footer className="bg-black/90 py-16 text-center text-sand border-t border-white/10">
         <div className="container">
-          <h2 className="font-serif text-2xl text-cream mb-6">El Migajón</h2>
-          <div className="flex justify-center gap-6 mb-8">
-            <a href="https://instagram.com/lamigapolanco" target="_blank" className="hover:text-orange transition-colors flex items-center gap-2">
-              <Camera size={20} /> @lamigapolanco
+          <h2 className="font-serif text-3xl text-cream mb-8 tracking-wider">El Migajón</h2>
+          <div className="flex flex-wrap justify-center gap-8 mb-12">
+            <a href="https://instagram.com/lamigapolanco" target="_blank" className="hover:text-orange transition-all flex items-center gap-2 group">
+              <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-orange/20 transition-all">
+                <Camera size={20} />
+              </div>
+              @lamigapolanco
             </a>
-            <span className="opacity-30">|</span>
-            <span className="text-sm">lamigapolanco.com</span>
+            <div className="flex items-center gap-2 text-sm opacity-60">
+              <MapPin size={16} /> Polanco · Las Lomas · CDMX
+            </div>
           </div>
-          <p className="text-sm opacity-60 mb-4">Polanco · Las Lomas de Chapultepec · CDMX</p>
-          <a href="/politica-privacidad" className="text-xs opacity-40 hover:opacity-100 underline">Política de privacidad</a>
-          <p className="text-[10px] opacity-20 mt-8">© 2024 El Migajón. Todos los derechos reservados.</p>
+          <div className="flex justify-center gap-6 mb-8 text-xs opacity-40">
+            <a href="/politica-privacidad" className="hover:opacity-100 underline">Privacidad</a>
+            <a href="/aviso-legal" className="hover:opacity-100 underline">Aviso Legal</a>
+          </div>
+          <p className="text-[10px] opacity-20 mt-12 uppercase tracking-widest">© 2024 El Migajón. Elaboración artesanal diaria.</p>
         </div>
       </footer>
 
@@ -244,7 +239,7 @@ const Landing = () => {
           background: linear-gradient(-45deg, #D4842A, #C4741A, #E8D4A8, #D4842A);
           background-size: 400% 400%;
           animation: gradient 6s ease infinite;
-          opacity: 0.3;
+          opacity: 0.1;
         }
         @keyframes gradient {
           0% { background-position: 0% 50%; }
@@ -258,6 +253,5 @@ const Landing = () => {
     </div>
   );
 };
-
 // Final structure updated for immersive experience
 export default Landing;
