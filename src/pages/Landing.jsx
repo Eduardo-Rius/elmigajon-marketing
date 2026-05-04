@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import CaptureForm from '../components/CaptureForm';
-import { Wheat, Hand, Heart, Check, X, Clock, MapPin, ShoppingBag, Instagram } from 'lucide-react';
+import { Wheat, Hand, Heart, Check, X, Clock, MapPin, ShoppingBag, Camera } from 'lucide-react';
 import heroImg from '../assets/hero.png';
 import loafImg from '../assets/loaf.png';
 import crumbImg from '../assets/crumb.png';
@@ -224,7 +224,7 @@ const Landing = () => {
           <h2 className="font-serif text-2xl text-cream mb-6">El Migajón</h2>
           <div className="flex justify-center gap-6 mb-8">
             <a href="https://instagram.com/lamigapolanco" target="_blank" className="hover:text-orange transition-colors flex items-center gap-2">
-              <Instagram size={20} /> @lamigapolanco
+              <Camera size={20} /> @lamigapolanco
             </a>
             <span className="opacity-30">|</span>
             <span className="text-sm">lamigapolanco.com</span>

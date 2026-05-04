@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Check, MessageCircle, Instagram, ArrowRight } from 'lucide-react';
+import { Check, MessageCircle, Camera, ArrowRight } from 'lucide-react';
 
 const ThankYou = () => {
   useEffect(() => {
