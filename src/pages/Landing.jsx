@@ -27,14 +27,15 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className="landing-page">
+    <div className="landing-page relative min-h-screen">
+      {/* GLOBAL FIXED BACKGROUND */}
+      <div className="fixed inset-0 z-[-1]">
+        <img src={heroImg} alt="Pan artesanal" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black/60 backdrop-brightness-50"></div>
+      </div>
+
       {/* SECTION 1 - HERO */}
-      <section className="min-h-screen flex items-center relative overflow-hidden py-12 md:py-20">
-        <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="Pan artesanal" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/40 backdrop-brightness-75"></div>
-        </div>
-        
+      <section className="min-h-screen flex items-center relative py-12 md:py-20">
         <div className="container relative z-10">
           <div className="max-w-[850px] mx-auto text-center reveal">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white text-[10px] uppercase tracking-[0.2em] mb-12 mx-auto">
@@ -60,7 +61,7 @@ const Landing = () => {
       </section>
 
       {/* SECTION 2 - WHY SOURDOUGH */}
-      <section className="bg-light">
+      <section className="bg-white/5 backdrop-blur-sm border-y border-white/10 py-24">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="reveal">
@@ -105,7 +106,7 @@ const Landing = () => {
       </section>
 
       {/* SECTION 3 - PROBLEM VS SOLUTION */}
-      <section className="bg-brown text-cream">
+      <section className="bg-brown/80 backdrop-blur-md text-cream py-24">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="reveal">
@@ -146,7 +147,7 @@ const Landing = () => {
       </section>
 
       {/* SECTION 4 - DELIVERY */}
-      <section className="bg-light">
+      <section className="bg-white/5 backdrop-blur-sm border-y border-white/10 py-24">
         <div className="container">
           <div className="text-center mb-16 reveal">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">En tu puerta. Sin que tengas que moverte.</h2>
@@ -174,8 +175,8 @@ const Landing = () => {
       </section>
 
       {/* SECTION 5 - TESTIMONIALS */}
-      <section className="bg-dark text-cream relative py-24">
-        <div className="absolute inset-0 opacity-10">
+      <section className="bg-black/60 backdrop-blur-md text-cream relative py-24 border-y border-white/10">
+        <div className="absolute inset-0 opacity-5">
           <img src={lifestyleImg} alt="Lifestyle" className="w-full h-full object-cover grayscale" />
         </div>
         <div className="container relative z-10">
@@ -203,7 +204,7 @@ const Landing = () => {
       </section>
 
       {/* SECTION 6 - GUARANTEE & FINAL CTA */}
-      <section id="final-cta" className="bg-orange relative overflow-hidden py-24 text-center">
+      <section id="final-cta" className="bg-orange/90 backdrop-blur-sm relative overflow-hidden py-24 text-center">
         <div className="container relative z-10 reveal">
           <Check className="w-20 h-20 mx-auto text-dark mb-8" strokeWidth={3} />
           <h2 className="text-4xl md:text-6xl font-black text-dark mb-6">Tu primer pedido tiene garantía de devolución.</h2>
