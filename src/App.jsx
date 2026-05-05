@@ -7,6 +7,7 @@ import Testimonials from './components/Testimonials';
 import GuaranteeCTA from './components/GuaranteeCTA';
 import Footer from './components/Footer';
 import PopupCapture from './components/PopupCapture';
+import WhatsAppSystem from './components/WhatsAppSystem';
 
 function App() {
   useEffect(() => {
@@ -38,6 +39,7 @@ function App() {
       <GuaranteeCTA />
       <Footer />
       <PopupCapture />
+      <WhatsAppSystem />
     </main>
   );
 }
