@@ -42,7 +42,7 @@ const SupermarketProblem = () => {
             El pan industrial no envejece mal porque es fresco. Envejece mal porque está lleno de cosas que no deberían estar ahí.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
+          <div className="comparison-grid">
             <div style={{ backgroundColor: 'rgba(0,0,0,0.2)', padding: '25px', border: 'none' }}>
               <h3 style={{ fontSize: '18px', marginBottom: '15px' }}>Pan del súper</h3>
               <ul style={{ listStyle: 'none', fontSize: '15px', color: 'var(--color-text-light)', opacity: 0.9 }}>

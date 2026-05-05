@@ -16,7 +16,7 @@ const GuaranteeCTA = () => {
   };
 
   return (
-    <section className="reveal" style={{ 
+    <section id="guarantee-section" className="reveal" style={{ 
       backgroundColor: 'var(--color-accent-orange)', 
       color: 'var(--color-text-dark)',
       position: 'relative',
@@ -44,6 +44,7 @@ const GuaranteeCTA = () => {
             type="text" 
             placeholder="Tu nombre" 
             className="form-input" 
+            autoComplete="name"
             style={{ backgroundColor: 'rgba(59, 42, 26, 0.05)', borderColor: 'rgba(59, 42, 26, 0.2)', color: 'var(--color-text-dark)' }}
             required 
             value={formData.name}
@@ -53,6 +54,8 @@ const GuaranteeCTA = () => {
             type="tel" 
             placeholder="Tu WhatsApp" 
             className="form-input" 
+            autoComplete="tel"
+            inputMode="numeric"
             style={{ backgroundColor: 'rgba(59, 42, 26, 0.05)', borderColor: 'rgba(59, 42, 26, 0.2)', color: 'var(--color-text-dark)' }}
             required 
             value={formData.phone}

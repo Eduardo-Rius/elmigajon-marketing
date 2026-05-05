@@ -107,12 +107,12 @@ const WhatsAppSystem = () => {
 
         .wa-bubble-close {
           position: absolute;
-          top: 8px;
-          right: 8px;
+          top: 0;
+          right: 0;
           background: transparent;
           color: rgba(59, 42, 26, 0.4);
-          width: 24px;
-          height: 24px;
+          width: 44px;
+          height: 44px;
           display: flex;
           align-items: center;
           justify-content: center;

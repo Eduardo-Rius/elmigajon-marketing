@@ -43,7 +43,7 @@ const Delivery = () => {
           En tu puerta. Sin que tengas que moverte.
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '60px' }}>
+        <div className="delivery-grid">
           {cards.map((card, idx) => (
             <div 
               key={idx} 

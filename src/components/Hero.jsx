@@ -17,7 +17,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero" style={{ 
+    <section id="hero-section" className="hero" style={{ 
       backgroundColor: 'var(--color-primary-dark)', 
       minHeight: '100vh', 
       position: 'relative',
@@ -29,17 +29,26 @@ const Hero = () => {
       <div className="texture-overlay"></div>
       
       {/* Hero Image Background */}
-      <div style={{
+      <div className="hero-img-container" style={{
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         height: '60%',
-        backgroundImage: `url(${heroImg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        zIndex: 0
+        zIndex: 0,
+        overflow: 'hidden'
       }}>
+        <img 
+          src={heroImg} 
+          alt="Manos trabajando masa madre" 
+          loading="eager" 
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center'
+          }} 
+        />
         <div style={{
           position: 'absolute',
           top: 0,
@@ -58,9 +67,8 @@ const Hero = () => {
         marginTop: '20%'
       }}>
         <div style={{ maxWidth: '800px' }}>
-          <h1 style={{ 
+          <h1 className="hero-title" style={{ 
             color: 'var(--color-text-light)', 
-            fontSize: 'clamp(38px, 8vw, 72px)', 
             lineHeight: 1.1,
             marginBottom: '20px'
           }}>
@@ -80,6 +88,7 @@ const Hero = () => {
               type="text" 
               placeholder="Tu nombre" 
               className="form-input" 
+              autoComplete="name"
               required 
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -88,6 +97,8 @@ const Hero = () => {
               type="tel" 
               placeholder="Tu WhatsApp" 
               className="form-input" 
+              autoComplete="tel"
+              inputMode="numeric"
               required 
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}

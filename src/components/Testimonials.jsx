@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import familyImg from '../assets/family-breakfast.png';
 
 const Testimonials = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef(null);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const scrollLeft = scrollRef.current.scrollLeft;
+      const cardWidth = scrollRef.current.offsetWidth * 0.85; // Roughly the width of one card in mobile
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      setActiveIndex(newIndex);
+    }
+  };
   const testimonials = [
     {
       text: "Hace seis meses que no compramos pan en el súper. No hay vuelta atrás.",
@@ -36,12 +47,18 @@ const Testimonials = () => {
           Lo que dicen en Polanco
         </h2>
 
-        <div className="testimonials-grid" style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '20px',
-          overflowX: 'auto',
-          paddingBottom: '20px'
+        <div 
+          className="testimonials-grid" 
+          ref={scrollRef}
+          onScroll={handleScroll}
+          style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+            gap: '16px',
+            overflowX: 'auto',
+            paddingBottom: '20px',
+            scrollbarWidth: 'none', // Hide scrollbar Firefox
+            msOverflowStyle: 'none' // Hide scrollbar IE/Edge
         }}>
           {testimonials.map((t, idx) => (
             <div key={idx} className="stagger-item" style={{
@@ -80,18 +97,53 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
+
+        {/* Pagination Dots */}
+        <div className="carousel-dots" style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '8px',
+          marginTop: '10px'
+        }}>
+          {testimonials.map((_, idx) => (
+            <div 
+              key={idx} 
+              style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                backgroundColor: '#D4842A',
+                opacity: activeIndex === idx ? 1 : 0.3,
+                transition: 'opacity 0.3s ease'
+              }}
+            />
+          ))}
+        </div>
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
+        .testimonials-grid::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .carousel-dots {
+          display: none !important;
+        }
+
         @media (max-width: 768px) {
+          .carousel-dots {
+            display: flex !important;
+          }
           .testimonials-grid {
             display: flex !important;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
+            padding-right: 20px; /* Space to show the cut off card */
           }
           .testimonials-grid > div {
-            scroll-snap-align: center;
-            flex: 0 0 85%;
+            scroll-snap-align: start;
+            flex: 0 0 calc(100% - 40px); /* Leaves exactly room for the next card to peek */
+            min-width: auto !important;
           }
         }
       `}} />

@@ -8,6 +8,7 @@ import GuaranteeCTA from './components/GuaranteeCTA';
 import Footer from './components/Footer';
 import PopupCapture from './components/PopupCapture';
 import WhatsAppSystem from './components/WhatsAppSystem';
+import StickyCTA from './components/StickyCTA';
 
 function App() {
   useEffect(() => {
@@ -41,6 +42,7 @@ function App() {
       <GuaranteeCTA />
       <Footer />
       <PopupCapture />
+      <StickyCTA />
       <WhatsAppSystem />
     </main>
   );
