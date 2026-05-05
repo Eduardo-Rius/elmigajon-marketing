@@ -8,6 +8,7 @@ const GuaranteeCTA = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.privacy) {
+      localStorage.setItem('migajon_form_submitted', 'true');
       navigate('/gracias');
     } else {
       alert('Por favor, acepta la política de privacidad.');

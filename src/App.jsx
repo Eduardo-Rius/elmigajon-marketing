@@ -6,6 +6,7 @@ import Delivery from './components/Delivery';
 import Testimonials from './components/Testimonials';
 import GuaranteeCTA from './components/GuaranteeCTA';
 import Footer from './components/Footer';
+import PopupCapture from './components/PopupCapture';
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
       <Testimonials />
       <GuaranteeCTA />
       <Footer />
+      <PopupCapture />
     </main>
   );
 }
