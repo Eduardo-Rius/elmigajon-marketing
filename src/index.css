@@ -23,6 +23,10 @@
   box-sizing: border-box;
 }
 
+img {
+  border: 0 !important;
+}
+
 html {
   scroll-behavior: smooth;
   font-family: var(--font-body);
@@ -169,4 +173,13 @@ section {
 .checkbox-container a {
   color: inherit;
   text-decoration: underline;
+}
+
+.no-frame {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
 }
