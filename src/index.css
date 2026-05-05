@@ -205,12 +205,17 @@ section {
   justify-content: center;
   background: transparent;
   color: #3B2A1A;
-  opacity: 0.5;
+  opacity: 0.8;
   transition: opacity 0.3s;
 }
 
 .popup-close-btn:hover {
   opacity: 1;
+}
+
+.popup-input::placeholder {
+  color: #3B2A1A !important;
+  opacity: 0.6 !important;
 }
 
 @keyframes fadeIn {

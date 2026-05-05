@@ -103,7 +103,7 @@ const PopupCapture = () => {
           fontFamily: "'Lato', sans-serif",
           fontWeight: 400,
           fontSize: '15px',
-          color: 'rgba(59, 42, 26, 0.75)',
+          color: '#3B2A1A',
           margin: '0 0 24px 0',
           lineHeight: 1.5
         }}>
@@ -114,20 +114,20 @@ const PopupCapture = () => {
           <input 
             type="text" 
             placeholder="Tu nombre" 
-            className="form-input" 
+            className="form-input popup-input" 
             required 
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
-            style={{ backgroundColor: 'rgba(59, 42, 26, 0.05)', borderColor: 'rgba(59, 42, 26, 0.2)', color: '#3B2A1A' }}
+            style={{ backgroundColor: 'rgba(59, 42, 26, 0.05)', borderColor: 'rgba(59, 42, 26, 0.2)', color: '#3B2A1A', fontWeight: 500 }}
           />
           <input 
             type="tel" 
             placeholder="Tu WhatsApp" 
-            className="form-input" 
+            className="form-input popup-input" 
             required 
             value={formData.phone}
             onChange={(e) => setFormData({...formData, phone: e.target.value})}
-            style={{ backgroundColor: 'rgba(59, 42, 26, 0.05)', borderColor: 'rgba(59, 42, 26, 0.2)', color: '#3B2A1A' }}
+            style={{ backgroundColor: 'rgba(59, 42, 26, 0.05)', borderColor: 'rgba(59, 42, 26, 0.2)', color: '#3B2A1A', fontWeight: 500 }}
           />
           <button type="submit" style={{
             backgroundColor: '#D4842A',
@@ -149,7 +149,7 @@ const PopupCapture = () => {
         <p style={{
           fontFamily: "'Lato', sans-serif",
           fontSize: '12px',
-          color: 'rgba(59, 42, 26, 0.55)',
+          color: 'rgba(59, 42, 26, 0.8)',
           marginTop: '12px',
           marginBottom: '20px'
         }}>
@@ -161,9 +161,10 @@ const PopupCapture = () => {
           style={{
             fontFamily: "'Lato', sans-serif",
             fontSize: '13px',
-            color: 'rgba(59, 42, 26, 0.4)',
+            color: 'rgba(59, 42, 26, 0.7)',
             cursor: 'pointer',
-            display: 'inline-block'
+            display: 'inline-block',
+            fontWeight: 500
           }}
         >
           No me interesa el pan de verdad
