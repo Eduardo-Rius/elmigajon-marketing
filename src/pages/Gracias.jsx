@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Gracias = () => {
   const phoneNumber = '525535099442';
@@ -286,6 +287,34 @@ const Gracias = () => {
             ))}
           </div>
         </section>
+
+        {/* BACK TO HOME BUTTON */}
+        <div style={{ textAlign: 'center', marginTop: '60px' }}>
+          <Link to="/" style={{
+            display: 'inline-block',
+            backgroundColor: 'transparent',
+            color: '#3B2A1A',
+            border: '2px solid #D4842A',
+            padding: '14px 32px',
+            borderRadius: '30px',
+            textDecoration: 'none',
+            fontFamily: "'Lato', sans-serif",
+            fontWeight: 700,
+            fontSize: '16px',
+            transition: 'all 0.2s ease',
+            cursor: 'pointer'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.backgroundColor = '#D4842A';
+            e.target.style.color = '#FFF3DC';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.backgroundColor = 'transparent';
+            e.target.style.color = '#3B2A1A';
+          }}>
+            Volver al inicio
+          </Link>
+        </div>
       </main>
 
       <style dangerouslySetInnerHTML={{ __html: `
